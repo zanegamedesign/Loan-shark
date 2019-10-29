@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Bar : MonoBehaviour
 {
-    private GameObject player;
-    private PlayerStats playerStats;
+    private GameObject player1;
+    private PlayerStats player1Stats;
     public Text uiText;
     public float countDown;
     public float timer = 120.0f;
@@ -17,23 +17,23 @@ public class Bar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerStats = player.GetComponent<PlayerStats>();
+        player1 = GameObject.FindGameObjectWithTag("Player1");
+        player1Stats = player1.GetComponent<PlayerStats>();
         countDown = timer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= distanceLimit)
+        if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
         {
-            if (playerStats.charisma <= 3)
+            if (player1Stats.charisma <= 3)
             {
                 uiText.text = "[E] ";
                 uiText.SetAllDirty();
                 if (Input.GetKey(KeyCode.E))
                 {
-                    playerStats.isWorking = true;
+                    player1Stats.isWorking = true;
                     isFlirting = true;
                 }
             }
@@ -43,15 +43,15 @@ public class Bar : MonoBehaviour
                 countDown -= Time.deltaTime;
                 if (countDown <= 0)
                 {
-                    ++playerStats.charisma;
+                    ++player1Stats.charisma;
                     countDown = timer;
-                    playerStats.isWorking = false;
+                    player1Stats.isWorking = false;
                     isFlirting = false;
                 }
             }
         }
 
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) > distanceLimit)
+        if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
         {
             uiText.text = "";
             uiText.SetAllDirty();

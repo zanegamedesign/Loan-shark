@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Arkham Interactive\Toony\Skies\Scripts\Levelloader.cs" />
     <Compile Include="Assets\Arkham Interactive\Toony\Skies\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\AI.cs" />
     <Compile Include="Assets\Scripts\Apartment.cs" />
     <Compile Include="Assets\Scripts\Bar.cs" />
     <Compile Include="Assets\Scripts\BasicPlayerMovement.cs" />
