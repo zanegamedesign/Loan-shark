@@ -10,8 +10,20 @@ public class OverallTimer : MonoBehaviour
     public bool isDay = true;
     private GameObject player1;
     private GameObject player2;
+    private GameObject player3;
+    private GameObject player4;
+    private GameObject player5;
+    private GameObject player6;
+    private GameObject player7;
+    private GameObject player8;
     private PlayerStats p1Stats;
     private AI p2Stats;
+    private AI p3Stats;
+    private AI p4Stats;
+    private AI p5Stats;
+    private AI p6Stats;
+    private AI p7Stats;
+    private AI p8Stats;
     public float htScale = 0.1f;
 
     // Start is called before the first frame update
@@ -39,5 +51,17 @@ public class OverallTimer : MonoBehaviour
         p1Stats.tired = p1Stats.tired - htScale;
         p2Stats.hunger = p2Stats.hunger - htScale;
         p2Stats.tired = p2Stats.tired - htScale;
+        p3Stats.hunger = p3Stats.hunger - htScale;
+        p3Stats.tired = p3Stats.tired - htScale;
+        p4Stats.hunger = p4Stats.hunger - htScale;
+        p4Stats.tired = p4Stats.tired - htScale;
+        p5Stats.hunger = p5Stats.hunger - htScale;
+        p5Stats.tired = p5Stats.tired - htScale;
+        p6Stats.hunger = p6Stats.hunger - htScale;
+        p6Stats.tired = p6Stats.tired - htScale;
+        p7Stats.hunger = p7Stats.hunger - htScale;
+        p7Stats.tired = p7Stats.tired - htScale;
+        p8Stats.hunger = p8Stats.hunger - htScale;
+        p8Stats.tired = p8Stats.tired - htScale;
     }
 }
