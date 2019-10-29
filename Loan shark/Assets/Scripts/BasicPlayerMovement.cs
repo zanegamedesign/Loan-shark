@@ -5,7 +5,7 @@ using UnityEngine;
 public class BasicPlayerMovement : MonoBehaviour
 {
     public float zMoveBase = 0.5f;
-    private float zMove;
+    public float zMove;
     public float yRotate = 5f;
     private GameObject player;
     private PlayerStats playerStats;
@@ -14,12 +14,12 @@ public class BasicPlayerMovement : MonoBehaviour
     void Start()
     {
         playerStats = gameObject.GetComponent<PlayerStats>();
+        zMove = zMoveBase;
     }
 
     // Update is called once per frame
     void Update()
     {
-        zMove = zMoveBase;
         if (!playerStats.isWorking)
         {
             if (Input.GetKey(KeyCode.W))

@@ -46,7 +46,7 @@ public class Gym : MonoBehaviour
                 if (countDown <= 0)
                 {
                     ++playerStats.speed;
-                    BPM.zMoveBase = BPM.zMoveBase * playerStats.speed;
+                    BPM.zMove = BPM.zMoveBase * playerStats.speed;
                     countDown = timer;
                     playerStats.isWorking = false;
                     isExcersicing = false;
