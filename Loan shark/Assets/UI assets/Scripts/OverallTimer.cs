@@ -33,6 +33,18 @@ public class OverallTimer : MonoBehaviour
         p1Stats = player1.GetComponent<PlayerStats>();
         player2 = GameObject.FindGameObjectWithTag("Player2");
         p2Stats = player2.GetComponent<AI>();
+        player3 = GameObject.FindGameObjectWithTag("Player3");
+        p3Stats = player3.GetComponent<AI>();
+        player4 = GameObject.FindGameObjectWithTag("Player4");
+        p4Stats = player4.GetComponent<AI>();
+        player5 = GameObject.FindGameObjectWithTag("Player5");
+        p5Stats = player5.GetComponent<AI>();
+        player6 = GameObject.FindGameObjectWithTag("Player6");
+        p6Stats = player6.GetComponent<AI>();
+        player7 = GameObject.FindGameObjectWithTag("Player7");
+        p7Stats = player7.GetComponent<AI>();
+        player8 = GameObject.FindGameObjectWithTag("Player8");
+        p8Stats = player8.GetComponent<AI>();
         day = fullDay / 2;
         countDown = fullDay;
     }

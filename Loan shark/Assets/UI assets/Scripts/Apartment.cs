@@ -28,8 +28,8 @@ public class Apartment : MonoBehaviour
         {
             if (player1Stats.tired < 100)
             {
-                uiText.text = "[E] Sleep";
-                uiText.SetAllDirty();
+                //uiText.text = "[E] Sleep";
+                //uiText.SetAllDirty();
                 if (Input.GetKey(KeyCode.E))
                 {
                     player1Stats.isWorking = true;
@@ -50,10 +50,10 @@ public class Apartment : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
+        /*if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
         {
             uiText.text = "";
             uiText.SetAllDirty();
-        }
+        }*/
     }
 }

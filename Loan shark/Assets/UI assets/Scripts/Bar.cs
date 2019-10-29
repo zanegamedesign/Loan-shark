@@ -29,8 +29,8 @@ public class Bar : MonoBehaviour
         {
             if (player1Stats.charisma <= 3)
             {
-                uiText.text = "[E] ";
-                uiText.SetAllDirty();
+                //uiText.text = "[E] ";
+                //uiText.SetAllDirty();
                 if (Input.GetKey(KeyCode.E))
                 {
                     player1Stats.isWorking = true;
@@ -51,11 +51,11 @@ public class Bar : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
+        /*if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
         {
             uiText.text = "";
             uiText.SetAllDirty();
-        }
+        }*/
     }
 }
 

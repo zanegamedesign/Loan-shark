@@ -9,13 +9,11 @@ public class ShopWork : MonoBehaviour
     private GameObject player1;
     private PlayerStats player1Stats;
     public int tier;
-    private bool isInteractable = true;
+    [SerializeField] private bool isInteractable = true;
     public float distanceLimit = 1.0f;
     public Text uiText;
     public bool isNocturnal = false;
     private bool isActive = false;
-    public bool hasPrerequisite = false;
-    public float prerequisite = 70.0f;
     private float countDown;
     public float timerReset = 90.0f;
     public float wage;
@@ -32,94 +30,89 @@ public class ShopWork : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasPrerequisite)
+
+        if (!isNocturnal)
         {
-            if(prerequisite <= player1Stats.tired)
+            if (timer.isDay)
             {
-                if (!isNocturnal)
-                {
-                    if (timer.isDay)
-                    {
-                        isInteractable = true;
-                    }
-                    if (!timer.isDay)
-                    {
-                        isInteractable = false;
-                    }
-                }
-                if (isNocturnal)
-                {
-                    if (timer.isDay)
-                    {
-                        isInteractable = false;
-                    }
-                    if (!timer.isDay)
-                    {
-                        isInteractable = true;
-                    }
-                }
+                isInteractable = true;
+            }
+            if (!timer.isDay)
+            {
+                isInteractable = false;
+            }
+        }
+        if (isNocturnal)
+        {
+            if (timer.isDay)
+            {
+                isInteractable = false;
+            }
+            if (!timer.isDay)
+            {
+                isInteractable = true;
             }
         }
 
-        if (!hasPrerequisite)
+
+
+        if (!isNocturnal)
         {
-            if (!isNocturnal)
+            if (timer.isDay)
             {
-                if (timer.isDay)
-                {
-                    isInteractable = true;
-                }
-                if (!timer.isDay)
-                {
-                    isInteractable = false;
-                }
+                isInteractable = true;
             }
-            if (isNocturnal)
+            if (!timer.isDay)
             {
-                if (timer.isDay)
-                {
-                    isInteractable = false;
-                }
-                if (!timer.isDay)
-                {
-                    isInteractable = true;
-                }
+                isInteractable = false;
+            }
+        }
+        if (isNocturnal)
+        {
+            if (timer.isDay)
+            {
+                isInteractable = false;
+            }
+            if (!timer.isDay)
+            {
+                isInteractable = true;
             }
         }
         
         
-        if (tier == 1)
+        
+        if (tier <= 1)
         {
             if (isInteractable)
             {
                 if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
                 {
-                    uiText.text = "[E] to Interact";
-                    uiText.SetAllDirty();
-                    if (Input.GetKey(KeyCode.E))
+                    //uiText.text = "[E] to Interact";
+                    //uiText.SetAllDirty();
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
                         player1Stats.isWorking = true;
                         isActive = true;
                         isInteractable = false;
                     }
                 }
-                if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
+                /*if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
                 {
                     uiText.text = "";
-                }
+                }*/
             }
         }
 
         if (tier == 2)
         {
-            if(player1Stats.charisma == 2)
+            if(player1Stats.charisma >= 2)
             {
                 if (isInteractable)
                 {
                     if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
                     {
-                        uiText.text = "[E] to Interact";
-                        uiText.SetAllDirty();
+                        //uiText.text = "[E] to Interact";
+                        //uiText.SetAllDirty();
                         if (Input.GetKey(KeyCode.E))
                         {
                             player1Stats.isWorking = true;
@@ -127,22 +120,22 @@ public class ShopWork : MonoBehaviour
                             isInteractable = false;
                         }
                     }
-                    if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
+                    /*if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
                     {
                         uiText.text = "";
-                    }
+                    }*/
                 }
             }
             else
             {
-                if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
+                /*if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
                 {
                     uiText.text = "Requires 2 Charisma";
                 }
                 if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
                 {
                     uiText.text = "";
-                }
+                }*/
             }
         }
 
@@ -154,8 +147,8 @@ public class ShopWork : MonoBehaviour
                 {
                     if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
                     {
-                        uiText.text = "[E] to Interact";
-                        uiText.SetAllDirty();
+                        //uiText.text = "[E] to Interact";
+                        //uiText.SetAllDirty();
                         if (Input.GetKey(KeyCode.E))
                         {
                             player1Stats.isWorking = true;
@@ -163,21 +156,21 @@ public class ShopWork : MonoBehaviour
                             isInteractable = false;
                         }
                     }
-                    if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
+                    /*if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
                     {
                         uiText.text = "";
-                    }
+                    }*/
                 }
                 else
                 {
-                    if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
+                    /*if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
                     {
                         uiText.text = "Requires 2 Charisma";
                     }
                     if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
                     {
                         uiText.text = "";
-                    }
+                    }*/
                 }
             }
         }

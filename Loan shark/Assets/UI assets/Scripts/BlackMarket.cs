@@ -29,8 +29,8 @@ public class BlackMarket : MonoBehaviour
     {
         if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
         {
-            uiText.text = "[E] Sell an organ?";
-            uiText.SetAllDirty();
+            //uiText.text = "[E] Sell an organ?";
+            //uiText.SetAllDirty();
             if (Input.GetKey(KeyCode.E) && player1Stats.organs == 5 && isInteractable)
             {
                 risk = 5;

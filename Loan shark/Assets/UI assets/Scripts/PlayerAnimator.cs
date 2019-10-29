@@ -19,7 +19,7 @@ public class PlayerAnimator : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal") != 0)
         {
-            print("here");
+            //print("here");
         }
 
         if (Input.GetKey(KeyCode.W))

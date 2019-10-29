@@ -31,8 +31,8 @@ public class Gym : MonoBehaviour
         {
             if (player1Stats.speed <= 3)
             {
-                uiText.text = "[E] Work out";
-                uiText.SetAllDirty();
+                //uiText.text = "[E] Work out";
+                //uiText.SetAllDirty();
                 if (Input.GetKey(KeyCode.E))
                 {
                     player1Stats.isWorking = true;
@@ -54,11 +54,11 @@ public class Gym : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
+        /*if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
         {
             uiText.text = "";
             uiText.SetAllDirty();
-        }
+        }*/
     }
 }
 

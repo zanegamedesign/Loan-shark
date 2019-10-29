@@ -50,6 +50,9 @@ public class AI : MonoBehaviour
             if (!isWorking)
             {
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(Random.Range((apartment.transform.position.x - 2), (apartment.transform.position.x + 2)), transform.position.y, Random.Range((apartment.transform.position.z - 2), (apartment.transform.position.z + 2))), (speed / 4));
+                Vector3 relativePos = apartment.transform.position - transform.position;
+                Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.forward);
+                transform.rotation = rotation;
                 isWorking = true;
                 aCountDown -= Time.deltaTime;
                 if (aCountDown <= 0)
@@ -65,6 +68,9 @@ public class AI : MonoBehaviour
             if (!isWorking)
             {
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(Random.Range(restaurant.transform.position.x - 2, restaurant.transform.position.x + 2), transform.position.y, Random.Range(restaurant.transform.position.z - 2, restaurant.transform.position.z + 2)), (speed / 4));
+                Vector3 relativePos = restaurant.transform.position - transform.position;
+                Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.forward);
+                transform.rotation = rotation;
                 isWorking = true;
                 bCountDown -= Time.deltaTime;
                 if (bCountDown <= 0)
@@ -80,6 +86,10 @@ public class AI : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(ClosestWork().transform.position.x, transform.position.y, ClosestWork().transform.position.z), (speed / 4));
             shopWork = work.GetComponent<ShopWork>();
+            Vector3 relativePos = work.transform.position - transform.position;
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, relativePos, 0, 0.0f);
+            Quaternion rotation = Quaternion.LookRotation(newDir);
+            transform.rotation = rotation;
             wCountDown -= Time.deltaTime;
             isWorking = true;
             if(wCountDown <= 0)

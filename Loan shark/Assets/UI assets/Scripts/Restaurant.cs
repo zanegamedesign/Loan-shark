@@ -30,8 +30,8 @@ public class Restaurant : MonoBehaviour
         {
             if (player1Stats.hunger < 100)
             {
-                uiText.text = "[E] Eat $" + cost.ToString();
-                uiText.SetAllDirty();
+                //uiText.text = "[E] Eat $" + cost.ToString();
+                //uiText.SetAllDirty();
                 if (Input.GetKey(KeyCode.E))
                 {
                     player1Stats.isWorking = true;
@@ -53,11 +53,11 @@ public class Restaurant : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
+        /*if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
         {
             uiText.text = "";
             uiText.SetAllDirty();
-        }
+        }*/
     }
 }
 
