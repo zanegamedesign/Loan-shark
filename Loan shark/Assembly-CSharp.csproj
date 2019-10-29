@@ -64,17 +64,17 @@
   <ItemGroup>
     <Compile Include="Assets\Arkham Interactive\Toony\Skies\Scripts\Levelloader.cs" />
     <Compile Include="Assets\Arkham Interactive\Toony\Skies\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\Scripts\AI.cs" />
-    <Compile Include="Assets\Scripts\Apartment.cs" />
-    <Compile Include="Assets\Scripts\Bar.cs" />
-    <Compile Include="Assets\Scripts\BasicPlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\BlackMarket.cs" />
-    <Compile Include="Assets\Scripts\Gym.cs" />
-    <Compile Include="Assets\Scripts\OverallTimer.cs" />
-    <Compile Include="Assets\Scripts\PlayerAnimator.cs" />
-    <Compile Include="Assets\Scripts\PlayerStats.cs" />
-    <Compile Include="Assets\Scripts\Restaurant.cs" />
-    <Compile Include="Assets\Scripts\ShopWork.cs" />
+    <Compile Include="Assets\UI assets\Scripts\AI.cs" />
+    <Compile Include="Assets\UI assets\Scripts\Apartment.cs" />
+    <Compile Include="Assets\UI assets\Scripts\Bar.cs" />
+    <Compile Include="Assets\UI assets\Scripts\BasicPlayerMovement.cs" />
+    <Compile Include="Assets\UI assets\Scripts\BlackMarket.cs" />
+    <Compile Include="Assets\UI assets\Scripts\Gym.cs" />
+    <Compile Include="Assets\UI assets\Scripts\OverallTimer.cs" />
+    <Compile Include="Assets\UI assets\Scripts\PlayerAnimator.cs" />
+    <Compile Include="Assets\UI assets\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\UI assets\Scripts\Restaurant.cs" />
+    <Compile Include="Assets\UI assets\Scripts\ShopWork.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/zrossetto/Documents/GitHub/Loan-shark/Loan shark/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
