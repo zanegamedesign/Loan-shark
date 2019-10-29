@@ -6,7 +6,9 @@ public class OverallTimer : MonoBehaviour
 {
     public float countDown;
     public float fullDay = 240.0f;
+    public float lynch = 480.0f;
     private float day;
+    private float lowestMoney = 1000000;
     public bool isDay = true;
     private GameObject player1;
     private GameObject player2;
@@ -25,6 +27,8 @@ public class OverallTimer : MonoBehaviour
     private AI p7Stats;
     private AI p8Stats;
     public float htScale = 0.1f;
+
+   
 
     // Start is called before the first frame update
     void Start()
@@ -53,12 +57,38 @@ public class OverallTimer : MonoBehaviour
     void Update()
     {
         countDown -= Time.deltaTime;
+        lynch -= Time.deltaTime;
 
         if (countDown <= day)
         {
             isDay = false;
         }
 
+        if (lynch <= 0)
+        {
+            GameObject[] players = { player1, player2, player3, player4, player5, player6, player7, player8 };
+            float[] moneys = { p1Stats.money, p2Stats.money, p3Stats.money, p4Stats.money, p5Stats.money, p6Stats.money, p7Stats.money, p8Stats.money };
+
+            foreach(var item in moneys)
+            {
+                if(item < lowestMoney)
+                {
+                    lowestMoney = item;
+                    print(lowestMoney);
+                }
+            }
+
+            foreach (var item in players)
+            {
+                PlayerStats tempStats = item.GetComponent<PlayerStats>();
+                float temp = tempStats.money;
+                if (lowestMoney >= temp)
+                {
+                    Destroy(item);
+                    break;
+                }
+            }
+        }
         p1Stats.hunger = p1Stats.hunger - htScale;
         p1Stats.tired = p1Stats.tired - htScale;
         p2Stats.hunger = p2Stats.hunger - htScale;
@@ -75,5 +105,6 @@ public class OverallTimer : MonoBehaviour
         p7Stats.tired = p7Stats.tired - htScale;
         p8Stats.hunger = p8Stats.hunger - htScale;
         p8Stats.tired = p8Stats.tired - htScale;
+
     }
 }

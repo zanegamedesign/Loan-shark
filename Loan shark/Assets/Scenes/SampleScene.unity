@@ -2418,7 +2418,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4554807.5, y: -2.074784e-14, z: -2.7355895e+19, w: 6.680618e-21}
+  m_BoundingSphereOverride: {x: -6.9e-44, y: NaN, z: 4.589e-42, w: 2.296e-41}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -5191,6 +5191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countDown: 0
   fullDay: 240
+  lynch: 480
   isDay: 1
   htScale: 0.05
 --- !u!4 &1435617787
