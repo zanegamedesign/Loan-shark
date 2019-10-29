@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BasicPlayerMovement : MonoBehaviour
 {
-    public float zMove = 0.5f;
+    public float zMoveBase = 0.5f;
+    private float zMove;
     public float yRotate = 5f;
     private GameObject player;
     private PlayerStats playerStats;
@@ -12,13 +13,13 @@ public class BasicPlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerStats = player.GetComponent<PlayerStats>();
+        playerStats = gameObject.GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        zMove = zMoveBase;
         if (!playerStats.isWorking)
         {
             if (Input.GetKey(KeyCode.W))
