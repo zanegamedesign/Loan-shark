@@ -6,14 +6,16 @@ using UnityEngine.UI;
 public class ShopWork : MonoBehaviour
 {
     private OverallTimer timer;
-    private GameObject player;
-    private PlayerStats playerStats;
+    private GameObject player1;
+    private PlayerStats player1Stats;
     public int tier;
     private bool isInteractable = true;
     public float distanceLimit = 1.0f;
     public Text uiText;
     public bool isNocturnal = false;
     private bool isActive = false;
+    public bool hasPrerequisite = false;
+    public float prerequisite = 70.0f;
     private float countDown;
     public float timerReset = 90.0f;
     public float wage;
@@ -21,54 +23,87 @@ public class ShopWork : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player1 = GameObject.FindGameObjectWithTag("Player1");
         timer = GameObject.Find("Game Manager").GetComponent<OverallTimer>();
-        playerStats = player.GetComponent<PlayerStats>();
+        player1Stats = player1.GetComponent<PlayerStats>();
         countDown = timerReset;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isNocturnal)
+        if (hasPrerequisite)
         {
-            if (timer.isDay)
+            if(prerequisite <= player1Stats.tired)
             {
-                isInteractable = true;
-            }
-            if (!timer.isDay)
-            {
-                isInteractable = false;
+                if (!isNocturnal)
+                {
+                    if (timer.isDay)
+                    {
+                        isInteractable = true;
+                    }
+                    if (!timer.isDay)
+                    {
+                        isInteractable = false;
+                    }
+                }
+                if (isNocturnal)
+                {
+                    if (timer.isDay)
+                    {
+                        isInteractable = false;
+                    }
+                    if (!timer.isDay)
+                    {
+                        isInteractable = true;
+                    }
+                }
             }
         }
-        if (isNocturnal)
+
+        if (!hasPrerequisite)
         {
-            if (timer.isDay)
+            if (!isNocturnal)
             {
-                isInteractable = false;
+                if (timer.isDay)
+                {
+                    isInteractable = true;
+                }
+                if (!timer.isDay)
+                {
+                    isInteractable = false;
+                }
             }
-            if (!timer.isDay)
+            if (isNocturnal)
             {
-                isInteractable = true;
+                if (timer.isDay)
+                {
+                    isInteractable = false;
+                }
+                if (!timer.isDay)
+                {
+                    isInteractable = true;
+                }
             }
         }
+        
         
         if (tier == 1)
         {
             if (isInteractable)
             {
-                if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= distanceLimit)
+                if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
                 {
                     uiText.text = "[E] to Interact";
                     uiText.SetAllDirty();
                     if (Input.GetKey(KeyCode.E))
                     {
-                        playerStats.isWorking = true;
+                        player1Stats.isWorking = true;
                         isActive = true;
                         isInteractable = false;
                     }
                 }
-                if (Vector3.Distance(gameObject.transform.position, player.transform.position) > distanceLimit)
+                if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
                 {
                     uiText.text = "";
                 }
@@ -77,22 +112,22 @@ public class ShopWork : MonoBehaviour
 
         if (tier == 2)
         {
-            if(playerStats.charisma == 2)
+            if(player1Stats.charisma == 2)
             {
                 if (isInteractable)
                 {
-                    if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= distanceLimit)
+                    if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
                     {
                         uiText.text = "[E] to Interact";
                         uiText.SetAllDirty();
                         if (Input.GetKey(KeyCode.E))
                         {
-                            playerStats.isWorking = true;
+                            player1Stats.isWorking = true;
                             isActive = true;
                             isInteractable = false;
                         }
                     }
-                    if (Vector3.Distance(gameObject.transform.position, player.transform.position) > distanceLimit)
+                    if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
                     {
                         uiText.text = "";
                     }
@@ -100,11 +135,11 @@ public class ShopWork : MonoBehaviour
             }
             else
             {
-                if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= distanceLimit)
+                if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
                 {
                     uiText.text = "Requires 2 Charisma";
                 }
-                if (Vector3.Distance(gameObject.transform.position, player.transform.position) > distanceLimit)
+                if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
                 {
                     uiText.text = "";
                 }
@@ -113,33 +148,36 @@ public class ShopWork : MonoBehaviour
 
         if (tier == 3)
         {
-            if (isInteractable)
+            if(player1Stats.charisma == 3)
             {
-                if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= distanceLimit)
+                if (isInteractable)
                 {
-                    uiText.text = "[E] to Interact";
-                    uiText.SetAllDirty();
-                    if (Input.GetKey(KeyCode.E))
+                    if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
                     {
-                        playerStats.isWorking = true;
-                        isActive = true;
-                        isInteractable = false;
+                        uiText.text = "[E] to Interact";
+                        uiText.SetAllDirty();
+                        if (Input.GetKey(KeyCode.E))
+                        {
+                            player1Stats.isWorking = true;
+                            isActive = true;
+                            isInteractable = false;
+                        }
+                    }
+                    if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
+                    {
+                        uiText.text = "";
                     }
                 }
-                if (Vector3.Distance(gameObject.transform.position, player.transform.position) > distanceLimit)
+                else
                 {
-                    uiText.text = "";
-                }
-            }
-            else
-            {
-                if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= distanceLimit)
-                {
-                    uiText.text = "Requires 2 Charisma";
-                }
-                if (Vector3.Distance(gameObject.transform.position, player.transform.position) > distanceLimit)
-                {
-                    uiText.text = "";
+                    if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
+                    {
+                        uiText.text = "Requires 2 Charisma";
+                    }
+                    if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
+                    {
+                        uiText.text = "";
+                    }
                 }
             }
         }
@@ -151,8 +189,8 @@ public class ShopWork : MonoBehaviour
             {
                 isActive = false;
                 isInteractable = true;
-                playerStats.isWorking = false;
-                playerStats.money = playerStats.money + wage;
+                player1Stats.isWorking = false;
+                player1Stats.money = player1Stats.money + wage;
             }
         }
     }

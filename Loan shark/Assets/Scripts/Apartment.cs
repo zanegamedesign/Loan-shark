@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Apartment : MonoBehaviour
 {
-    private GameObject player;
-    private PlayerStats playerStats;
+    private GameObject player1;
+    private PlayerStats player1Stats;
     public Text uiText;
     public float countDown;
     public float timer = 120.0f;
@@ -16,23 +16,23 @@ public class Apartment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerStats = player.GetComponent<PlayerStats>();
+        player1 = GameObject.FindGameObjectWithTag("Player1");
+        player1Stats = player1.GetComponent<PlayerStats>();
         countDown = timer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= distanceLimit)
+        if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
         {
-            if (playerStats.tired < 100)
+            if (player1Stats.tired < 100)
             {
                 uiText.text = "[E] Sleep";
                 uiText.SetAllDirty();
                 if (Input.GetKey(KeyCode.E))
                 {
-                    playerStats.isWorking = true;
+                    player1Stats.isWorking = true;
                     isSleeping = true;
                 }
             }
@@ -42,15 +42,15 @@ public class Apartment : MonoBehaviour
                 countDown -= Time.deltaTime;
                 if (countDown <= 0)
                 {
-                    playerStats.tired = playerStats.tiredMax;
+                    player1Stats.tired = player1Stats.tiredMax;
                     countDown = timer;
-                    playerStats.isWorking = false;
+                    player1Stats.isWorking = false;
                     isSleeping = false;
                 }
             }
         }
 
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) > distanceLimit)
+        if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
         {
             uiText.text = "";
             uiText.SetAllDirty();

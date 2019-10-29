@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Gym : MonoBehaviour
 {
-    private GameObject player;
-    private PlayerStats playerStats;
+    private GameObject player1;
+    private PlayerStats player1Stats;
     private BasicPlayerMovement BPM;
     public Text uiText;
     public float countDown;
@@ -18,24 +18,24 @@ public class Gym : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerStats = player.GetComponent<PlayerStats>();
-        BPM = player.GetComponent<BasicPlayerMovement>();
+        player1 = GameObject.FindGameObjectWithTag("Player1");
+        player1Stats = player1.GetComponent<PlayerStats>();
+        BPM = player1.GetComponent<BasicPlayerMovement>();
         countDown = timer;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= distanceLimit)
+        if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
         {
-            if (playerStats.speed <= 3)
+            if (player1Stats.speed <= 3)
             {
                 uiText.text = "[E] Work out";
                 uiText.SetAllDirty();
                 if (Input.GetKey(KeyCode.E))
                 {
-                    playerStats.isWorking = true;
+                    player1Stats.isWorking = true;
                     isExcersicing = true;
                 }
             }
@@ -45,16 +45,16 @@ public class Gym : MonoBehaviour
                 countDown -= Time.deltaTime;
                 if (countDown <= 0)
                 {
-                    ++playerStats.speed;
-                    BPM.zMove = BPM.zMoveBase * playerStats.speed;
+                    ++player1Stats.speed;
+                    BPM.zMove = BPM.zMoveBase * player1Stats.speed;
                     countDown = timer;
-                    playerStats.isWorking = false;
+                    player1Stats.isWorking = false;
                     isExcersicing = false;
                 }
             }
         }
 
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) > distanceLimit)
+        if (Vector3.Distance(gameObject.transform.position, player1.transform.position) > distanceLimit)
         {
             uiText.text = "";
             uiText.SetAllDirty();

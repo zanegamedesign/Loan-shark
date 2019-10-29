@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class BlackMarket : MonoBehaviour
 {
     public Text uiText;
-    private GameObject player;
-    private PlayerStats playerStats;
+    private GameObject player1;
+    private PlayerStats player1Stats;
     public int risk = 5;
     public float distanceLimit = 3.0f;
     public float wage = 10.0f;
@@ -19,86 +19,86 @@ public class BlackMarket : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerStats = player.GetComponent<PlayerStats>();
+        player1 = GameObject.FindGameObjectWithTag("Player1");
+        player1Stats = player1.GetComponent<PlayerStats>();
         countDown = cooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= distanceLimit)
+        if (Vector3.Distance(gameObject.transform.position, player1.transform.position) <= distanceLimit)
         {
             uiText.text = "[E] Sell an organ?";
             uiText.SetAllDirty();
-            if (Input.GetKey(KeyCode.E) && playerStats.organs == 5 && isInteractable)
+            if (Input.GetKey(KeyCode.E) && player1Stats.organs == 5 && isInteractable)
             {
                 risk = 5;
-                --playerStats.organs;
-                playerStats.money = playerStats.money + wage;
+                --player1Stats.organs;
+                player1Stats.money = player1Stats.money + wage;
                 temp = Random.Range(0, 100);
                 if (temp <= risk)
                 {
-                    playerStats.isDead = true;
+                    player1Stats.isDead = true;
                 }
                 isInteractable = false;
             }
 
-            if (Input.GetKey(KeyCode.E) && playerStats.organs == 4 && isInteractable)
+            if (Input.GetKey(KeyCode.E) && player1Stats.organs == 4 && isInteractable)
             {
                 risk = 10;
-                --playerStats.organs;
-                playerStats.money = playerStats.money + (wage * 1.5f);
+                --player1Stats.organs;
+                player1Stats.money = player1Stats.money + (wage * 1.5f);
                 temp = Random.Range(0, 100);
                 if (temp <= risk)
                 {
-                    playerStats.isDead = true;
+                    player1Stats.isDead = true;
                 }
                 isInteractable = false;
             }
 
-            if (Input.GetKey(KeyCode.E) && playerStats.organs == 3 && isInteractable)
+            if (Input.GetKey(KeyCode.E) && player1Stats.organs == 3 && isInteractable)
             {
                 risk = 15;
-                --playerStats.organs;
-                playerStats.money = playerStats.money + (wage * 2);
+                --player1Stats.organs;
+                player1Stats.money = player1Stats.money + (wage * 2);
                 temp = Random.Range(0, 100);
                 if (temp <= risk)
                 {
-                    playerStats.isDead = true;
+                    player1Stats.isDead = true;
                 }
                 isInteractable = false;
             }
 
-            if (Input.GetKey(KeyCode.E) && playerStats.organs == 2 && isInteractable)
+            if (Input.GetKey(KeyCode.E) && player1Stats.organs == 2 && isInteractable)
             {
                 risk = 20;
-                --playerStats.organs;
-                playerStats.money = playerStats.money + (wage * 2.5f);
+                --player1Stats.organs;
+                player1Stats.money = player1Stats.money + (wage * 2.5f);
                 temp = Random.Range(0, 100);
                 if (temp <= risk)
                 {
-                    playerStats.isDead = true;
+                    player1Stats.isDead = true;
                 }
                 isInteractable = false;
             }
 
-            if (Input.GetKey(KeyCode.E) && playerStats.organs == 1 && isInteractable)
+            if (Input.GetKey(KeyCode.E) && player1Stats.organs == 1 && isInteractable)
             {
                 risk = 25;
-                --playerStats.organs;
-                playerStats.money = playerStats.money + (wage * 3);
+                --player1Stats.organs;
+                player1Stats.money = player1Stats.money + (wage * 3);
                 temp = Random.Range(0, 100);
                 if (temp <= risk)
                 {
-                    playerStats.isDead = true;
+                    player1Stats.isDead = true;
                 }
                 isInteractable = false;
             }
 
-            if (Input.GetKey(KeyCode.E) && playerStats.organs == 0 && isInteractable)
+            if (Input.GetKey(KeyCode.E) && player1Stats.organs == 0 && isInteractable)
             {
-                playerStats.isDead = true;
+                player1Stats.isDead = true;
                 isInteractable = false;
             }
 
