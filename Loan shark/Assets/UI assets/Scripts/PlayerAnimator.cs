@@ -31,15 +31,5 @@ public class PlayerAnimator : MonoBehaviour
             Anim.SetBool("Is walking", false);
         }
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            Anim.SetBool("Is Jumping", true);
-        }
-        else
-        {
-            Anim.SetBool("Is Jumping", false);
-        }
-
-
     }
 }
