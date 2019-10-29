@@ -496,18 +496,18 @@ MonoBehaviour:
     m_ExpandedIDs: 00000000f22c0000fa2e00004c330000da33000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: UI assets
-      m_OriginalName: UI assets
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 13274
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_SearchString: 
@@ -521,7 +521,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f22c00004c330000da330000
+    m_ExpandedIDs: 00000000f22c0000fa2e00004c330000da330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -546,8 +546,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 982a0000
-    m_LastClickedInstanceID: 10904
+    m_SelectedInstanceIDs: dcddffff
+    m_LastClickedInstanceID: -8740
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000d42d00001c2f0000
     m_RenameOverlay:
@@ -642,23 +642,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 982a0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 46bdffff36c5ffff20c6ffffeed7ffff64d8ffff1ce8ffff4ae9ffff78fbffff
+      m_SelectedIDs: 083e0000
+      m_LastClickedID: 15880
+      m_ExpandedIDs: a6e5ffff1eecffff78fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: fish_market
-        m_OriginalName: fish_market
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 24976
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -704,9 +704,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 9.512831, y: 5.1983547, z: 148.65279}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: 9.512831, y: 5.1983547, z: 148.65279}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -739,9 +739,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.056958638, y: -0.80197865, z: 0.077477805, w: 0.58956194}
   m_Size:
-    m_Target: 39.80979
+    m_Target: 22
     speed: 2
-    m_Value: 39.80979
+    m_Value: 22
   m_Ortho:
     m_Target: 0
     speed: 2

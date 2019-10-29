@@ -14,6 +14,7 @@ public class PlayerStats : MonoBehaviour
     public float organs = 5.0f;
     public bool isWorking = false;
     public bool isDead = false;
+    public bool isDebuffed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,23 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (hunger <= 0)
+        {
+            hunger = 0;
+            if (!isDebuffed)
+            {
+                --speed;
+                isDebuffed = true;
+            }
+        }
+        if (tired <= 0)
+        {
+            tired = 0;
+            if (!isDebuffed)
+            {
+                --speed;
+                isDebuffed = true;
+            }
+        }
     }
 }
